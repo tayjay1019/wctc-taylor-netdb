@@ -35,6 +35,7 @@ namespace TicketConsole
                             Console.WriteLine("{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}", arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6]);
                             ticketNumber++;
                         }
+                        sr.Close();
                     }
                     else
                     {
@@ -43,7 +44,7 @@ namespace TicketConsole
                 }
                 else if (choice == "2")
                 {
-                    StreamWriter sw = new StreamWriter(file);
+                    StreamWriter sw = new StreamWriter(file, true);
                     Boolean cont = true;
                     do
                     {
@@ -61,7 +62,7 @@ namespace TicketConsole
                         String asgn = Console.ReadLine();
                         Console.WriteLine("Please enter the names of others watching this ticket (Use a | inbetween each name");
                         String watchers = Console.ReadLine();
-                        sw.WriteLine("{ 0}\t{ 1}\t{ 2}\t{ 3}\t{ 4}\t{ 5}\t{ 6}", ticketNumber, smry, status, level, submitName, asgn, watchers);
+                        sw.WriteLine("{0},{1},{2},{3},{4},{5},{6}", ticketNumber, smry, status, level, submitName, asgn, watchers);
                     } while (cont == true);
                     sw.Close();
                 }
